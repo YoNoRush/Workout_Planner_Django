@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.flexbox {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+}

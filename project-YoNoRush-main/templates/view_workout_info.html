@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Workout Information</title>
+    <link rel="stylesheet" href="../styles/view_workout_info_styles.css">
+
+</head>
+<body>
+    {% if workout_info %}
+        <h1>Workout Companion Info</h1>
+        <p>First Name: {{ workout_info.user_first_name }}</p>
+        <p>Last Name: {{ workout_info.user_last_name }}</p>
+
+        {% if workout_info.profile_picture %}
+            <img src="{{ workout_info.profile_picture.url }}" alt="Profile Picture" width="150" height="150">
+        {% else %}
+            <p>No profile picture uploaded.</p>
+        {% endif %}
+
+        <p>Age: {{ workout_info.user_age }}</p>
+        <p>Gender: {{ workout_info.user_gender }}</p>
+        <p>Weight: {{ workout_info.user_weight }} kg</p>
+        <p>Height: {{ workout_info.user_height }} cm</p>
+        <p>Workout Choice: {{ workout_info.user_workout_choice }}</p>
+
+        <a href="{% url 'user_input' %}"><button>Edit</button></a>
+        <a href="{% url 'logout' %}"><button>Logout</button></a>
+    {% else %}
+        <p>No workout companion information found.</p>
+            <a href="{% url 'user_input' %}"><button>Create</button></a>
+    {% endif %}
+
+
+    {% if workout_info.user_workout_choice == 'Lose Weight' %}
+
+        <p>Based off the information you put in, you need to
+            consume about <b> {{ caloric_intake }}</b> calories a day to lose weight.</p>
+
+        <h2>Workouts to lose weight:</h2>
+
+        <h3>Tuesday:</h3>
+        <p>Running: 20 minutes at a moderate pace</p>
+        <p>Jump Squats: 3 sets x 15 reps</p>
+        <p>Burpees: 3 sets x 12 reps</p>
+        <p>Mountain Climbers: 3 sets x 30 seconds</p>
+        <p>High Knees: 3 sets x 30 seconds</p>
+
+        <h3>Thursday:</h3>
+        <p>Interval Running: 5 rounds of 30 seconds sprint + 1-minute walk</p>
+        <p>Push-ups: 3 sets x 15 reps</p>
+        <p>Jumping Lunges: 3 sets x 10 reps (each leg)</p>
+        <p>Tuck Jumps: 3 sets x 12 reps</p>
+        <p>Flutter Kicks: 3 sets x 20 reps</p>
+
+        <h3>Saturday:</h3>
+        <p>Long-Distance Running: 30 minutes at an easy pace</p>
+        <p>Burpee-to-Push-up: 3 sets x 10 reps</p>
+        <p>Broad Jumps: 3 sets x 10 reps</p>
+        <p>Bicycle Crunches: 3 sets x 20 reps</p>
+        <p>Side Plank: 3 sets x 30 seconds (each side)</p>
+
+    {% endif %}
+
+
+    {% if workout_info.user_workout_choice == 'Gain Weight' %}
+
+        <p>Based off the information you put in, you need to
+            consume about <b>{{ caloric_intake }}</b> calories a day to gain weight.</p>
+
+        <h2>Workouts to gain weight:</h2>
+        <h3>Tuesday:</h3>
+        <p>Bodyweight Squats: 4 sets x 12 reps</p>
+        <p>Push-ups: 4 sets x 15 reps</p>
+        <p>Pull-ups: 4 sets x 10 reps</p>
+        <p>Dips: 4 sets x 10 reps</p>
+        <p>Plank to Shoulder Tap: 3 sets x 20 taps</p>
+
+        <h3>Thursday:</h3>
+        <p>Bulgarian Split Squats: 3 sets x 12 reps (each leg)</p>
+        <p>Archer Push-ups: 3 sets x 8 reps (each side)</p>
+        <p>Chin-ups: 4 sets x 8 reps</p>
+        <p>Superman Hold: 3 sets x 30 seconds</p>
+        <p>Side Plank: 3 sets x 30 seconds (each side)</p>
+
+        <h3>Saturday:</h3>
+        <p>Jump Squats: 3 sets x 10 reps</p>
+        <p>Diamond Push-ups: 3 sets x 12 reps</p>
+        <p>Wide-Grip Pull-ups: 3 sets x 10 reps</p>
+        <p>L-sit: 3 sets x 20 seconds</p>
+        <p>Leg Raises: 3 sets x 15 reps</p>
+
+
+    {% endif %}
+
+
+    {% if workout_info.user_workout_choice == 'Gain Muscle' %}
+
+        <p>To build muscle optimally, you should consume
+            about <b>{{ caloric_intake }} calories</b> a day.</p>
+
+        <h2>Workouts to gain muscle:</h2>
+                <h3>Tuesday:</h3>
+        <p>Bulgarian Split Squats: 4 sets x 10 reps (each leg)</p>
+        <p>Archer Push-ups: 4 sets x 8 reps (each side)</p>
+        <p>Wide-Grip Pull-ups: 4 sets x 8 reps</p>
+        <p>Dips: 4 sets x 10 reps</p>
+        <p>Hollow Body Hold: 3 sets x 30 seconds</p>
+
+        <h3>Thursday:</h3>
+        <p>Pistol Squats: 3 sets x 6 reps (each leg)</p>
+        <p>Handstand Push-ups (or Pike Push-ups): 3 sets x 8 reps</p>
+        <p>Chin-ups: 4 sets x 10 reps</p>
+        <p>Superman Hold: 3 sets x 30 seconds</p>
+        <p>Side Plank Hip Raises: 3 sets x 12 reps (each side)</p>
+
+        <h3>Saturday:</h3>
+        <p>Jump Squats: 3 sets x 12 reps</p>
+        <p>Diamond Push-ups: 3 sets x 10 reps</p>
+        <p>Pull-ups (Weighted if possible): 4 sets x 8 reps</p>
+        <p>L-sit to Tuck Hold: 3 sets x 20 seconds</p>
+        <p>Hanging Leg Raises: 3 sets x 15 reps</p>
+    {% endif %}
+
+
+</body>
+</html>

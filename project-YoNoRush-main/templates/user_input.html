@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Input</title>
+</head>
+<body>
+    <h1>Enter Your Information</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            <label for="id_user_first_name">First Name:</label>
+            {{ form.user_first_name }}
+        </p>
+        <p>
+            <label for="id_user_last_name">Last Name:</label>
+            {{ form.user_last_name }}
+        </p>
+        
+        <p>
+            <label for="id_profile_picture">Profile Picture:</label>
+            {{ form.profile_picture }}
+            <!-- <button type="submit">Save</button> -->
+        </p>
+        
+        <p>
+            <label for="id_user_age">Age:</label>
+            {{ form.user_age }}
+        </p>
+        <p>
+            <label>Gender:</label>
+            {{ form.user_gender }}
+        </p>
+        <p>
+            <label for="id_user_weight">Weight (kg):</label>
+            {{ form.user_weight }}
+        </p>
+        <p>
+            <label for="id_user_height">Height (cm):</label>
+            {{ form.user_height }}
+        </p>
+        <p>
+            <label>Workout Goal:</label>
+            {{ form.user_workout_choice }}
+        </p>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

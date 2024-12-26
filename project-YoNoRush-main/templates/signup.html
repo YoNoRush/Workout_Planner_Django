@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% for field in form %}
+        {% if field.errors %}
+            <div style="color: red;">
+                {{ field.label }}: {{ field.errors|striptags }}
+            </div>
+        {% endif %}
+    {% endfor %}
+    <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+</body>
+</html>
